@@ -1,29 +1,36 @@
+import Model.CryptoModel;
+import Service.ConsoleService;
 import Service.CryptoService;
 
 import java.util.Scanner;
 
+import static consts.Consts.ENTER_SOURS_CRYPT_FILE;
+import static consts.Consts.ENTER_SOURS_DECRYPT_FILE;
+
 public class Main {
+
     public static void main(String[] args)
     {
-        CryptoService cryptoService = new CryptoService();
         Scanner scanner = new Scanner(System.in);
+        CryptoService cryptoService = new CryptoService();
+        CryptoModel cryptoModel = new CryptoModel();
+        ConsoleService consoleService = new ConsoleService(scanner);
+
+
         int value = 1;
 
-        switch (value)
-        {
-            case 1:
-            {
-                System.out.println("Введите имя файла, который нужно зашифровать");
-                String path_1 = scanner.nextLine();
-
-                System.out.println("Введите имя файла куда сложить результат");
-                String path_2 = scanner.nextLine();
-
-                System.out.println("Введите ключь");
-                int key = scanner.nextInt();
-
-                cryptoService.crypt(path_1,path_2,key);
+        switch (value) {
+            case 1: {
+                consoleService.enterData(ENTER_SOURS_CRYPT_FILE, cryptoModel);
+                cryptoService.crypt(cryptoModel);
+                break;
+            }
+            case 2: {
+                consoleService.enterData(ENTER_SOURS_DECRYPT_FILE, cryptoModel);
+                cryptoService.decrypt(cryptoModel);
+                break;
             }
         }
     }
+
 }

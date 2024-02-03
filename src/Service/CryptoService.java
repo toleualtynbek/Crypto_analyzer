@@ -1,9 +1,14 @@
 package Service;
 
+import Model.CryptoModel;
+
 public class CryptoService
 {
-    public void crypt(String path1, String path2, int key)
-    {
+    public void crypt(CryptoModel model){
+
+    }
+
+    public void decrypt(CryptoModel model){
 
     }
 }
