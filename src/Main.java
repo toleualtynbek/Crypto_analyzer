@@ -1,6 +1,8 @@
 import Model.CryptoModel;
+import Model.CryptoPaths;
 import Service.ConsoleService;
 import Service.CryptoService;
+import Service.FileService;
 
 import java.util.Scanner;
 
@@ -12,8 +14,8 @@ public class Main {
     public static void main(String[] args)
     {
         Scanner scanner = new Scanner(System.in);
-        CryptoService cryptoService = new CryptoService();
-        CryptoModel cryptoModel = new CryptoModel();
+        FileService fileService = new FileService();
+        CryptoService cryptoService = new CryptoService(fileService);
         ConsoleService consoleService = new ConsoleService(scanner);
 
 
@@ -21,16 +23,27 @@ public class Main {
 
         switch (value) {
             case 1: {
-                consoleService.enterData(ENTER_SOURS_CRYPT_FILE, cryptoModel);
-                cryptoService.crypt(cryptoModel);
+                cryptoService.crypt(consoleService.createCryptoModel(ENTER_SOURS_CRYPT_FILE));
                 break;
             }
             case 2: {
-                consoleService.enterData(ENTER_SOURS_DECRYPT_FILE, cryptoModel);
-                cryptoService.decrypt(cryptoModel);
+                cryptoService.decrypt(consoleService.createCryptoModel(ENTER_SOURS_DECRYPT_FILE));
                 break;
+            }
+            case 3: {
+                cryptoService.bruteForce(consoleService.createCryptoPath());
+                break;
+            }
+            case 4: {
+                cryptoService.staticAnalyze(consoleService.createCryptoPath());
+                break;
+            }
+            default:{
+
             }
         }
     }
+
+
 
 }

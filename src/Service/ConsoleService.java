@@ -1,6 +1,7 @@
 package Service;
 
 import Model.CryptoModel;
+import Model.CryptoPaths;
 
 import java.util.Scanner;
 
@@ -13,7 +14,21 @@ public class ConsoleService {
     {
         this.scanner = scanner;
     }
-    public void enterData(String enterSoursCryptFile, CryptoModel cryptoModel) {
+
+    public CryptoPaths createCryptoPath() {
+        CryptoPaths cryptoPaths = new CryptoPaths();
+        System.out.println("Адрес зашифрованного файла");
+        cryptoPaths.setPathFrom(scanner.nextLine());
+
+        System.out.println("Адрес файла с примером");
+        cryptoPaths.setPathTo(scanner.nextLine());
+
+        System.out.println("Адрес файла с результатом");
+        cryptoPaths.setResource(scanner.nextLine());
+        return cryptoPaths;
+    }
+    public CryptoModel createCryptoModel(String enterSoursCryptFile) {
+        CryptoModel cryptoModel = new CryptoModel();
         System.out.println(enterSoursCryptFile);
         cryptoModel.setPathFrom(scanner.nextLine());
 
@@ -22,5 +37,6 @@ public class ConsoleService {
 
         System.out.println(ENTER_KEY);
         cryptoModel.setKey(scanner.nextInt());
+        return cryptoModel;
     }
 }
