@@ -5,8 +5,7 @@ import Model.CryptoPaths;
 
 import java.util.Scanner;
 
-import static consts.Consts.ENTER_DESTINATION_FILE;
-import static consts.Consts.ENTER_KEY;
+import static consts.Consts.*;
 
 public class ConsoleService {
     private final Scanner scanner;
@@ -38,5 +37,17 @@ public class ConsoleService {
         System.out.println(ENTER_KEY);
         cryptoModel.setKey(scanner.nextInt());
         return cryptoModel;
+    }
+
+    public int chooseAction() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Выберите действие: ");
+        System.out.println("1. Шифрование методом цезаря: ");
+        System.out.println("2. Дешифрование: ");
+        System.out.println("3. bruteForce: ");
+        System.out.println("4. Статистический анализ: ");
+        System.out.print("->");
+        int i = scan.nextInt();
+        return i;
     }
 }

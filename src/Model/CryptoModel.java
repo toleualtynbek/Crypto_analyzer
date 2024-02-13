@@ -1,5 +1,7 @@
 package Model;
 
+import java.nio.file.Path;
+
 public class CryptoModel {
     private String pathFrom;
     private String pathTo;
@@ -13,8 +15,8 @@ public class CryptoModel {
         this.pathFrom = pathFrom;
     }
 
-    public String getPathTo() {
-        return pathTo;
+    public Path getPathTo() {
+        return Path.of(pathTo);
     }
 
     public void setPathTo(String pathTo) {

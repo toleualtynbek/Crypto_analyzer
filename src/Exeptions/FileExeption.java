@@ -2,7 +2,8 @@ package Exeptions;
 
 public class FileExeption extends Exception {
     String myExeption;
-    public FileExeption(String myExeption){
+    public FileExeption(String myExeption)
+    {
         this.myExeption = myExeption;
     }
     public FileExeption(String myExeption, Throwable cause){

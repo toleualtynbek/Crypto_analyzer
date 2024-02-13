@@ -1,3 +1,4 @@
+import Model.Alphabet;
 import Model.CryptoModel;
 import Model.CryptoPaths;
 import Service.ConsoleService;
@@ -15,11 +16,11 @@ public class Main {
     {
         Scanner scanner = new Scanner(System.in);
         FileService fileService = new FileService();
-        CryptoService cryptoService = new CryptoService(fileService);
+        Alphabet alphabet = new Alphabet();
+        CryptoService cryptoService = new CryptoService(fileService,alphabet);
         ConsoleService consoleService = new ConsoleService(scanner);
 
-
-        int value = 1;
+        int value = consoleService.chooseAction();
 
         switch (value) {
             case 1: {
@@ -39,10 +40,12 @@ public class Main {
                 break;
             }
             default:{
+                System.out.println("Выберите число от 1 по 4!");
 
             }
         }
     }
+
 
 
 
