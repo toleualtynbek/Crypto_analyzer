@@ -19,8 +19,8 @@ public class ConsoleService {
         System.out.println("Адрес зашифрованного файла");
         cryptoPaths.setPathFrom(scanner.nextLine());
 
-        System.out.println("Адрес файла с примером");
-        cryptoPaths.setPathTo(scanner.nextLine());
+   //     System.out.println("Адрес файла с примером");
+     //   cryptoPaths.setPathTo(scanner.nextLine());
 
         System.out.println("Адрес файла с результатом");
         cryptoPaths.setResource(scanner.nextLine());
@@ -41,7 +41,7 @@ public class ConsoleService {
 
     public int chooseAction() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Выберите действие: ");
+        System.out.println("Выберите действие (для завершения нажмите 5): ");
         System.out.println("1. Шифрование методом цезаря: ");
         System.out.println("2. Дешифрование: ");
         System.out.println("3. bruteForce: ");

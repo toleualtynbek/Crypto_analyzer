@@ -20,8 +20,10 @@ public class Main {
         CryptoService cryptoService = new CryptoService(fileService,alphabet);
         ConsoleService consoleService = new ConsoleService(scanner);
 
-        int value = consoleService.chooseAction();
-
+        while (true) {
+            int value = consoleService.chooseAction();
+            if (value == 5)
+                break;
         switch (value) {
             case 1: {
                 cryptoService.crypt(consoleService.createCryptoModel(ENTER_SOURS_CRYPT_FILE));
@@ -39,10 +41,10 @@ public class Main {
                 cryptoService.staticAnalyze(consoleService.createCryptoPath());
                 break;
             }
-            default:{
-                System.out.println("Выберите число от 1 по 4!");
-
+            default: {
+                System.out.println("Выберите число от 1 по 5!");
             }
+        }
         }
     }
 

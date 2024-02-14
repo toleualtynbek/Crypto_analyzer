@@ -1,5 +1,7 @@
 package Model;
 
+import java.nio.file.Path;
+
 public class CryptoPaths {
     private String pathFrom;
     private String pathTo;
@@ -30,8 +32,8 @@ public class CryptoPaths {
         this.pathTo = pathTo;
     }
 
-    public String getResource() {
-        return resource;
+    public Path getResource() {
+        return Path.of(resource);
     }
 
     public void setResource(String resource) {
